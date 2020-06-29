@@ -1,0 +1,49 @@
+<div class="wrapper">
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>First name:</mat-label>
+      <input matInput placeholder="Alex" [(ngModel)]="searchName" required>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button (click)="search()" class="button">Search</button>
+</div>
+
+<mat-table [dataSource]="employees | async" class="mat-elevation-z8 wrapper">
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fname">
+    <mat-header-cell *matHeaderCellDef>First name</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="lname">
+    <mat-header-cell *matHeaderCellDef>Last name</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="salary">
+    <mat-header-cell *matHeaderCellDef>Salary</mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.salary}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="edit">
+    <mat-header-cell *matHeaderCellDef>Edit</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-icon (click)="edit()" class="mats-button">edit</mat-icon>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <mat-icon (click)="delete(element.id)" class="mats-button">delete</mat-icon>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
