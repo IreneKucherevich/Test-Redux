@@ -8,6 +8,10 @@ import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserModule} from "@angular/platform-browser";
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects'
+import {employeeListReducer} from "./+state/employee-list.reducer";
+import {EmployeeListEffects} from "./+state/employee-list.effects";
 
 @NgModule({
   imports: [
@@ -18,7 +22,9 @@ import {BrowserModule} from "@angular/platform-browser";
     MatIconModule,
     FormsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    StoreModule.forFeature('employee', employeeListReducer),
+    EffectsModule.forFeature([EmployeeListEffects]),
   ],
   exports: [
     EmployeeListComponent

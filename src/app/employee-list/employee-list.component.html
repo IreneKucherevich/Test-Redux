@@ -8,7 +8,7 @@
   <button mat-raised-button (click)="search()" class="button">Search</button>
 </div>
 
-<mat-table [dataSource]="employees | async" class="mat-elevation-z8 wrapper">
+<mat-table [dataSource]="EmployeeListFacade.employees$ | async" class="mat-elevation-z8 wrapper">
 
   <ng-container matColumnDef="id">
     <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>

@@ -1,12 +1,12 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {EmployeeListModule} from "./employee-list/employee-list.module";
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects'
 
 @NgModule({
   declarations: [
@@ -15,10 +15,11 @@ import {EmployeeListModule} from "./employee-list/employee-list.module";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     EmployeeListModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forFeature([]),
   ],
   providers: [],
   bootstrap: [AppComponent]
