@@ -3,10 +3,10 @@ import {Actions, createEffect, Effect, ofType} from '@ngrx/effects';
 import {EmployeeService} from "../../employee.service";
 import * as EmployListActions from "./employee-list.actions";
 import {exhaustMap, map, mergeMap, switchMap, tap} from 'rxjs/operators';
-import {Employee} from "../employee-list.component";
 import {DeleteById} from "./employee-list.actions";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {AddEditEmployeeDialogComponent} from "../../shared/add-edit-employee-dialog/add-edit-employee-dialog.component";
+import {Employee} from "../../models/employee.model";
 
 @Injectable()
 export class EmployeeListEffects {

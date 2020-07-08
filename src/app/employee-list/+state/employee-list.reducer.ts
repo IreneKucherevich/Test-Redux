@@ -1,5 +1,5 @@
 import {EmployeeActionTypes, fromEmployeeActions} from "./employee-list.actions"
-import {Employee} from "../employee-list.component";
+import {Employee} from "../../models/employee.model";
 
 export interface EmployeeListState {
   employeeList: Employee[];

@@ -16,7 +16,7 @@
 // );
 
 import {Action} from '@ngrx/store';
-import {Employee} from "../employee-list.component";
+import {Employee} from "../../models/employee.model";
 
 export enum EmployeeActionTypes {
 
@@ -26,6 +26,7 @@ export enum EmployeeActionTypes {
   deleteById = '[Employee] Delete by Id',
   deleteByIdSuccess = '[Employee] Delete by Id Success',
   openAddEmployeeDialog = '[Employee] Open Add Employee Dialog',
+  openEditEmployeeDialog = '[Employee] Open Edit Employee Dialog',
   closeDialog = '[Employee] Close Dialog'
 }
 
@@ -62,9 +63,22 @@ export class OpenAddEmployeeDialog implements Action {
   readonly type = EmployeeActionTypes.openAddEmployeeDialog;
 }
 
-export class CloseDialog implements Action{
+export class OpenEditEmployeeDialog implements Action {
+  readonly type = EmployeeActionTypes.openEditEmployeeDialog;
+
+  constructor(public employee: Employee) {
+  }
+}
+
+export class CloseDialog implements Action {
   readonly type = EmployeeActionTypes.closeDialog;
 }
 
 export type fromEmployeeActions =
-  Loading | LoadSuccess | LoadFail | DeleteById | DeleteByIdSuccess | OpenAddEmployeeDialog;
+  Loading
+  | LoadSuccess
+  | LoadFail
+  | DeleteById
+  | DeleteByIdSuccess
+  | OpenAddEmployeeDialog
+  | OpenEditEmployeeDialog;

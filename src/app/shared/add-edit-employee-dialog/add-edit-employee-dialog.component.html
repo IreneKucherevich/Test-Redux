@@ -1,17 +1,17 @@
 <h2 mat-dialog-title>Add Employee</h2>
 <mat-dialog-content class="mat-typography">
-  <form class="base-dialog-form">
+  <form class="base-dialog-form" [formGroup]="addEmployeeForm">
     <mat-form-field appearance="legacy">
-      <input matInput placeholder="Id">
+      <input matInput placeholder="Id" formControlName="id">
     </mat-form-field>
     <mat-form-field appearance="legacy">
-      <input matInput placeholder="First name">
+      <input matInput placeholder="First name" formControlName="firstName">
     </mat-form-field>
     <mat-form-field appearance="legacy">
-      <input matInput placeholder="Last name">
+      <input matInput placeholder="Last name" formControlName="lastName">
     </mat-form-field>
     <mat-form-field appearance="legacy">
-      <input matInput placeholder="Salary">
+      <input matInput placeholder="Salary" formControlName="salary">
     </mat-form-field>
   </form>
 </mat-dialog-content>

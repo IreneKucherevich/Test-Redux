@@ -6,13 +6,7 @@ import * as EmployListActions from "./+state/employee-list.actions";
 import {MatTableDataSource} from "@angular/material/table";
 import {EmployeeListQuery} from "./+state/employee-list.selectors";
 import * as fromEmployee from "./+state/employee-list.reducer"
-
-export interface Employee {
-  id: number;
-  firstName: string;
-  lastName: string;
-  salary: number;
-}
+import {Employee} from "../models/employee.model";
 
 @Component({
   selector: 'app-employee-list',

@@ -6,6 +6,7 @@ import {CommonModule} from "@angular/common";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import {MatInputModule} from "@angular/material/input";
     CommonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ],
   exports: [],
   declarations: [AddEditEmployeeDialogComponent],
