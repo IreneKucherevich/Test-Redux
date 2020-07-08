@@ -27,7 +27,8 @@ export enum EmployeeActionTypes {
   deleteByIdSuccess = '[Employee] Delete by Id Success',
   openAddEmployeeDialog = '[Employee] Open Add Employee Dialog',
   openEditEmployeeDialog = '[Employee] Open Edit Employee Dialog',
-  closeDialog = '[Employee] Close Dialog'
+  closeDialog = '[Employee] Close Dialog',
+  deleteConfirmation = '[Employee] Delete Confirmation'
 }
 
 export class Loading implements Action {
@@ -70,6 +71,10 @@ export class OpenEditEmployeeDialog implements Action {
   }
 }
 
+export class DeleteConfirmation implements Action {
+  readonly type = EmployeeActionTypes.deleteConfirmation;
+}
+
 export class CloseDialog implements Action {
   readonly type = EmployeeActionTypes.closeDialog;
 }
@@ -81,4 +86,5 @@ export type fromEmployeeActions =
   | DeleteById
   | DeleteByIdSuccess
   | OpenAddEmployeeDialog
-  | OpenEditEmployeeDialog;
+  | OpenEditEmployeeDialog
+  | DeleteConfirmation;

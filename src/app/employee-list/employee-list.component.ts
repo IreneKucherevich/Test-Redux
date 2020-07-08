@@ -7,6 +7,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {EmployeeListQuery} from "./+state/employee-list.selectors";
 import * as fromEmployee from "./+state/employee-list.reducer"
 import {Employee} from "../models/employee.model";
+import {MatDialog} from "@angular/material/dialog";
+import {DeleteConfirmDialogComponent} from "../shared/delete-confirm-dialog/delete-confirm-dialog.component";
 
 @Component({
   selector: 'app-employee-list',
@@ -25,7 +27,7 @@ export class EmployeeListComponent implements OnInit {
   employees$: Observable<Employee[]>;
   dataSource = new MatTableDataSource<Employee[]>();
 
-  constructor(private es: EmployeeService, private store: Store<fromEmployee.EmployeeListState>) {
+  constructor(private es: EmployeeService, private store: Store<fromEmployee.EmployeeListState>, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -42,7 +44,13 @@ export class EmployeeListComponent implements OnInit {
   }
 
   delete(id: number): void {
-    this.store.dispatch(new EmployListActions.DeleteById(id));
+    // this.store.dispatch(new EmployListActions.DeleteById(id));
+    const dialogRef = this.dialog.open(DeleteConfirmDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.store.dispatch(new EmployListActions.DeleteById(id));
+      }
+    });
   }
 
   search(): void {
