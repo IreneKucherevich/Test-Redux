@@ -3,7 +3,7 @@ import {Actions, createEffect, Effect, ofType} from '@ngrx/effects';
 import {EmployeeService} from "../../employee.service";
 import * as EmployListActions from "./employee-list.actions";
 import {exhaustMap, map, mergeMap, switchMap, tap} from 'rxjs/operators';
-import {DeleteById} from "./employee-list.actions";
+import {DeleteById, OpenEditEmployeeDialog} from "./employee-list.actions";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {AddEditEmployeeDialogComponent} from "../../shared/add-edit-employee-dialog/add-edit-employee-dialog.component";
 import {Employee} from "../../models/employee.model";
@@ -45,7 +45,23 @@ export class EmployeeListEffects {
     ofType(EmployListActions.EmployeeActionTypes.openAddEmployeeDialog),
     exhaustMap(() => {
       const dialogRef: MatDialogRef<AddEditEmployeeDialogComponent> = this.dialog.open(AddEditEmployeeDialogComponent,{
-        width:'500px'
+        width:'500px',
+        data: {}
+      });
+
+      return dialogRef.afterClosed();
+    }),
+    map(() => (new EmployListActions.CloseDialog())
+    )
+  )
+
+  @Effect()
+  openEditEmployeeDialog$ = this.action$.pipe(
+    ofType(EmployListActions.EmployeeActionTypes.openEditEmployeeDialog),
+    exhaustMap((action: OpenEditEmployeeDialog) => {
+      const dialogRef: MatDialogRef<AddEditEmployeeDialogComponent> = this.dialog.open(AddEditEmployeeDialogComponent,{
+        width:'500px',
+        data: {client: action.employee}
       });
 
       return dialogRef.afterClosed();

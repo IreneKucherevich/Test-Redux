@@ -11,6 +11,7 @@ import {Employee} from "../../models/employee.model";
 })
 export class AddEditEmployeeDialogComponent implements OnInit {
   public addEmployeeForm: FormGroup;
+  public title: string;
 
   constructor(
     public dialogRef: MatDialogRef<AddEditEmployeeDialogComponent>,
@@ -41,13 +42,14 @@ export class AddEditEmployeeDialogComponent implements OnInit {
   private initform(): void {
     this.addEmployeeForm = new FormGroup({
       id: new FormControl({
-        value: '',
-        disabled: false,
+        value: this.data.client  ? this.data.client.id : '',
+        disabled: this.data.client,
       }, Validators.required),
-      firstName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
-      salary: new FormControl('', Validators.required),
+      firstName: new FormControl(this.data.client  ? this.data.client.firstName : '', Validators.required),
+      lastName: new FormControl(this.data.client  ? this.data.client.lastName : '', Validators.required),
+      salary: new FormControl(this.data.client  ? this.data.client.salary : '', Validators.required),
     });
+    this.title = this.data.client? 'Edit' : 'Add';
   }
 
 }

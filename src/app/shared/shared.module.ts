@@ -7,6 +7,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import { DeleteConfirmDialogComponent } from './delete-confirm-dialog/delete-confirm-dialog.component';
 
 @NgModule({
   imports: [
@@ -19,8 +20,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule
   ],
   exports: [],
-  declarations: [AddEditEmployeeDialogComponent],
-  entryComponents: [AddEditEmployeeDialogComponent],
+  declarations: [AddEditEmployeeDialogComponent, DeleteConfirmDialogComponent],
+  entryComponents: [AddEditEmployeeDialogComponent, DeleteConfirmDialogComponent],
   providers: []
 })
 

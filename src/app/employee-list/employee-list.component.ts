@@ -33,8 +33,8 @@ export class EmployeeListComponent implements OnInit {
     this.employees$ = this.store.select(EmployeeListQuery.loadEmployees);
   }
 
-  edit(): void {
-    console.log("Edit works!")
+  edit(employee: Employee): void {
+    this.store.dispatch(new EmployListActions.OpenEditEmployeeDialog(employee))
   }
 
   add(): void {
