@@ -6,11 +6,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from "@angular/common/http";
 import {EmployeeListModule} from "./employee-list/employee-list.module";
 import {StoreModule} from '@ngrx/store';
-import {EffectsModule} from '@ngrx/effects'
+import {EffectsModule} from '@ngrx/effects';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -19,7 +19,7 @@ import {EffectsModule} from '@ngrx/effects'
     HttpClientModule,
     EmployeeListModule,
     StoreModule.forRoot({}),
-    EffectsModule.forFeature([]),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

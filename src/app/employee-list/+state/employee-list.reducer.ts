@@ -15,9 +15,7 @@ export const initialState: EmployeeListState = {
 export function employeeListReducer(state: EmployeeListState = initialState, action: fromEmployeeActions) {
   switch (action.type) {
     case EmployeeActionTypes.loadSuccess:
-      return {
-        ...state, employeeList: action.employees
-      };
+      return {...state, employeeList: action.employees};
     default:
       return state;
 

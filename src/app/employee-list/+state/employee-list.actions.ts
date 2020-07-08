@@ -15,18 +15,22 @@
 //   props<{ error: string }>()
 // );
 
-import { Action } from '@ngrx/store';
+import {Action} from '@ngrx/store';
 import {Employee} from "../employee-list.component";
 
 export enum EmployeeActionTypes {
 
-  loading ='[Employee] Load',
+  loading = '[Employee] Load',
   loadSuccess = '[Employee] Load Success',
-  loadFail = '[Employee] Load Fail'
+  loadFail = '[Employee] Load Fail',
+  deleteById = '[Employee] Delete by Id',
+  deleteByIdSuccess = '[Employee] Delete by Id Success',
+  openAddEmployeeDialog = '[Employee] Open Add Employee Dialog',
+  closeDialog = '[Employee] Close Dialog'
 }
 
 export class Loading implements Action {
-readonly type = EmployeeActionTypes.loading;
+  readonly type = EmployeeActionTypes.loading;
 }
 
 export class LoadSuccess implements Action {
@@ -39,9 +43,28 @@ export class LoadSuccess implements Action {
 export class LoadFail implements Action {
   readonly type = EmployeeActionTypes.loadFail;
 
-  constructor( public error: string) {
+  constructor(public error: string) {
   }
 }
 
+export class DeleteById implements Action {
+  readonly type = EmployeeActionTypes.deleteById;
+
+  constructor(public id: number) {
+  }
+}
+
+export class DeleteByIdSuccess implements Action {
+  readonly type = EmployeeActionTypes.deleteByIdSuccess;
+}
+
+export class OpenAddEmployeeDialog implements Action {
+  readonly type = EmployeeActionTypes.openAddEmployeeDialog;
+}
+
+export class CloseDialog implements Action{
+  readonly type = EmployeeActionTypes.closeDialog;
+}
+
 export type fromEmployeeActions =
-  Loading | LoadSuccess | LoadFail;
+  Loading | LoadSuccess | LoadFail | DeleteById | DeleteByIdSuccess | OpenAddEmployeeDialog;

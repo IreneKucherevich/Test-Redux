@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Add Employee</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="base-dialog-form">
+    <mat-form-field appearance="legacy">
+      <input matInput placeholder="Id">
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <input matInput placeholder="First name">
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <input matInput placeholder="Last name">
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <input matInput placeholder="Salary">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="save()">Save</button>
+  <button mat-button (click)="close()">Close</button>
+</mat-dialog-actions>

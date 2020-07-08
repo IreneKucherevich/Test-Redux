@@ -1,14 +1,27 @@
 <div class="wrapper">
-  <div class="example-container">
+  <div class="fields-wrapper">
     <mat-form-field appearance="fill">
       <mat-label>First name:</mat-label>
       <input matInput placeholder="Alex" [(ngModel)]="searchName" required>
     </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last name:</mat-label>
+      <input matInput placeholder="Smith" [(ngModel)]="searchLastName" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Min salary:</mat-label>
+      <input matInput placeholder="10" [(ngModel)]="minSalary" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Max salary:</mat-label>
+      <input matInput placeholder="100000000" [(ngModel)]="maxSalary" required>
+    </mat-form-field>
   </div>
   <button mat-raised-button (click)="search()" class="button">Search</button>
+  <button mat-raised-button (click)="add()" class="button">Add</button>
 </div>
 
-<mat-table [dataSource]="EmployeeListFacade.employees$ | async" class="mat-elevation-z8 wrapper">
+<mat-table [dataSource]="employees$ | async" class="mat-elevation-z8 wrapper">
 
   <ng-container matColumnDef="id">
     <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>

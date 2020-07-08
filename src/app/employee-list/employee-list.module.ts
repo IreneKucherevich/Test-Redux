@@ -12,6 +12,7 @@ import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects'
 import {employeeListReducer} from "./+state/employee-list.reducer";
 import {EmployeeListEffects} from "./+state/employee-list.effects";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
@@ -23,8 +24,9 @@ import {EmployeeListEffects} from "./+state/employee-list.effects";
     FormsModule,
     MatButtonModule,
     MatInputModule,
-    StoreModule.forFeature('employee', employeeListReducer),
+    StoreModule.forFeature('employees', employeeListReducer),
     EffectsModule.forFeature([EmployeeListEffects]),
+    SharedModule
   ],
   exports: [
     EmployeeListComponent
