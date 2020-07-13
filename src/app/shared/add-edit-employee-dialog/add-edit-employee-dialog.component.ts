@@ -35,7 +35,7 @@ export class AddEditEmployeeDialogComponent implements OnInit {
       salary: this.addEmployeeForm.controls['salary'].value
     };
 
-    this.employeeService.addEmployee(employee);
+    this.employeeService.addEmployee(employee).subscribe();
     this.dialogRef.close();
   }
 

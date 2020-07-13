@@ -35,7 +35,7 @@ export class EmployeeListEffects {
 
   @Effect()
   loadEmployeeAfterDelete$ = this.action$.pipe(
-    ofType(EmployListActions.EmployeeActionTypes.deleteByIdSuccess),
+    ofType(EmployListActions.EmployeeActionTypes.deleteByIdSuccess,EmployListActions.EmployeeActionTypes.closeDialog),
     map(() => (new EmployListActions.Loading()))
   );
 
@@ -48,9 +48,8 @@ export class EmployeeListEffects {
         width:'500px',
         data: {}
       });
-
       return dialogRef.afterClosed();
-    }),
+    }),  tap(val => console.log('Close')),
     map(() => (new EmployListActions.CloseDialog())
     )
   )
